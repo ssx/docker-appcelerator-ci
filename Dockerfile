@@ -7,7 +7,7 @@ RUN apt-get -y install curl git software-properties-common
 # Install node6
 RUN cd /tmp && curl -sL https://deb.nodesource.com/setup_6.x -o /tmp/nodesource_setup.sh && chmod +x /tmp/nodesource_setup.sh && /tmp/nodesource_setup.sh
 RUN apt-get update -y && apt-get install nodejs -y
-RUN npm install -g appcelerator titanium jasmine alloy
+RUN npm install -g appcelerator titanium jasmine alloy tisdk
 
 # install java, only oracles will do
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
@@ -35,6 +35,6 @@ RUN useradd -c "Testing user" testing -s /bin/bash -m
 # Now install the SDK we're working with
 # This can't be done here as we're going to need a username/password for
 # Appcelerator's SDK install and build commands.
-# RUN runuser -l testing -c  'appc ti sdk install 6.0.3.GA'
+RUN runuser -l testing -c  'tisdk install 6.0.3.GA'
 
 CMD ["/bin/bash"]
