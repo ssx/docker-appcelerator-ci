@@ -36,5 +36,6 @@ RUN useradd -c "Testing user" testing -s /bin/bash -m
 # This can't be done here as we're going to need a username/password for
 # Appcelerator's SDK install and build commands.
 RUN runuser -l testing -c  'tisdk install 6.0.3.GA'
+RUN chown -R testing /usr/local/android
 
 CMD ["/bin/bash"]
