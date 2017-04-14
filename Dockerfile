@@ -2,7 +2,7 @@ FROM ubuntu
 MAINTAINER Scott Wilcox <scott@dor.ky>
 
 RUN apt-get -y update
-RUN apt-get -y install curl git software-properties-common
+RUN apt-get -y install curl git software-properties-common gcc-multilib lib32z1 lib32stdc++6
 
 # Install node6
 RUN cd /tmp && curl -sL https://deb.nodesource.com/setup_6.x -o /tmp/nodesource_setup.sh && chmod +x /tmp/nodesource_setup.sh && /tmp/nodesource_setup.sh
